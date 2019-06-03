@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+	<header>
+		<nav class="home_nav">
+			<span>IBOOK</span>
+			<a href="/">Home</a>
+			<a href="#">About</a>
+
+			<% if session[:logged_in] %>
+				<a href="#">Profile</a>
+				<a href="/auth/logout">Sign out</a>
+			
+			<%else%>
+				<a href="/auth/login">Login</a>
+				<a href="/auth/register">Sign up</a>
+				<%end%>
+		</nav>
+	</header>
+
+	<%=yield%>
+</body>
+</html>
