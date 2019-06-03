@@ -32,3 +32,7 @@ image, user_id, category_id) VALUES('Undisputed Truth', 'Mike Tyson',
 'https://images-na.ssl-images-amazon.com/images/I/51-nYcAl5WL._SX338_BO1,204,203,200_.jpg',
 3, 6);
 
+
+INSERT INTO comments (title, comment_for, user_id) VALUES(
+'Good Man', 'Thanks for accepting', 3
+);
