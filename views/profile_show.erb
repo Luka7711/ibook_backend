@@ -1,0 +1,17 @@
+
+<h3>Unwanted List</h3>
+	
+	<% @unwanted_books.each do |book| %>
+	<div class="all_books_container">
+		<img src="<%=book.image%>">
+		<ul>
+			<li><%=book[:title]%></li>
+			<li><%=book[:author]%></li>
+			<a href="/ibook/unwantedList/edit">edit</a>
+			<form action="/ibook/unwantedList/<%=book.id%>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button>remove</button>
+			</form>
+		</ul>
+	</div>
+	<% end %>

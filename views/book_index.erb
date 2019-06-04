@@ -14,3 +14,15 @@
 		<%end%>
 	</nav>
 </div>
+
+<div class="all_books_container">
+	<% @books.each do |book|%>
+		<div class="single_book_container">
+			<img src="<%=book.image%>">
+			<ul>
+				<li><%=book[:title]%></li>
+				<li>Author: <%=book[:author]%></li>
+			</ul>
+		</div>
+	<%end%>
+</div>
