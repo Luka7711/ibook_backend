@@ -41,4 +41,23 @@ class BookController < ApplicationController
 		book.destroy
 		redirect '/ibook/profile'
 	end
+
+	get '/unwantedList/edit/:id' do
+		@book = Book.find params[:id]
+		@category = Category.all
+		erb :book_edit
+	end
+
+	put '/unwantedList/:id' do
+		book = Book.find params[:id]
+		book.title = params[:title]
+		book.author = params[:author]
+		book.published_year = params[:year]
+		book.description = params[:description]
+		book.image = params[:image]
+		book.category_id = params[:category].to_i
+		book.save
+
+		redirect '/ibook/profile'
+	end
 end	

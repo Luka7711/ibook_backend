@@ -7,7 +7,7 @@
 		<ul>
 			<li><%=book[:title]%></li>
 			<li><%=book[:author]%></li>
-			<a href="/ibook/unwantedList/edit">edit</a>
+			<a href="/ibook/unwantedList/edit/<%=book.id%>">edit</a>
 			<form action="/ibook/unwantedList/<%=book.id%>" method="POST">
 				<input type="hidden" name="_method" value="DELETE">
 				<button>remove</button>

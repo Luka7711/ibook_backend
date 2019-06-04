@@ -1,0 +1,16 @@
+<div>
+	<form action="/ibook/unwantedList/<%=@book.id%>" method="POST">
+		<input type="hidden" name="_method" value="put">
+		 <input type="text" name="title"  value="<%=@book.title%>"> <label> title</label> <br/>
+		 <input type="text" name="author" value="<%=@book.author%>"> <label> author </label> <br/>
+		 <input type="number" name="year" value="<%=@book.published_year%>"><label> year</label><br/>
+		 <textarea name="description" rows="6" cols="40"><%=@book[:description]%></textarea><label>  description</label><br/>
+		 <input type="text" name="image" value="<%=@book.image%>"><label> URL</label><br/>
+		<select name="category">
+			<% @category.each do |category| %>
+			 <option value="<%=category.id%>"><%=category[:name]%></option>
+			<% end %>
+		</select><label> genre</label><br/>
+		<button>update</button>
+	</form>
+</div>
