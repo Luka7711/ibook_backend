@@ -35,4 +35,10 @@ class BookController < ApplicationController
 		@unwanted_books = Book.where :user_id => user.id
 		erb :profile_show
 	end
+
+	delete '/unwantedList/:id' do
+		book = Book.find params[:id]
+		book.destroy
+		redirect '/ibook/profile'
+	end
 end	
