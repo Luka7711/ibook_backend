@@ -13,8 +13,9 @@
 			<a href="#">About</a>
 
 			<% if session[:logged_in] %>
-				<a href="#">Profile</a>
-				<a href="/auth/logout">Sign out</a>
+				<a href="/ibook/new">+ Book</a> |
+				<a href="#">Profile</a> |
+				<a href="/auth/logout">Sign out</a> 
 			
 			<%else%>
 				<a href="/auth/login">Login</a>

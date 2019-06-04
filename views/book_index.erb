@@ -1,1 +1,16 @@
-<h1>All books</h1>
+<div class="search_bar">
+	<form action="/ibook/search/:title" method="GET">
+		<input type="text" name="search">
+		<button>search</button>
+	</form>
+</div>
+
+<div class="categories">
+	<nav>
+		<%@category.each do |category|%>
+			<a href="/ibook/category/:id">
+				<%= category[:name] %>
+			</a> |
+		<%end%>
+	</nav>
+</div>
