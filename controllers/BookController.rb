@@ -68,4 +68,30 @@ class BookController < ApplicationController
 		erb :book_offer_show
 	end
 
+	get '/owner/:id' do
+	# find a current user
+	# find all available books current user has
+	# find an owner of offered book by id
+		@user = User.find_by ({:username => session[:username]})
+		@books = Book.where :user_id => @user[:id]
+		other_user_book = Book.find params[:id]
+		@owner_of_book = User.find other_user_book[:user_id].to_i
+
+		erb :single_offer
+	end
+
+	post '/owner/:id' do
+		# find an owner of the book
+		user = User.find params[:id]
+		# create new comment
+		comment = Comment.new
+		# assing user id to comment table
+		comment.comment_for = params[:comment]
+		comment.user_id = user[:id] 
+		comment.book_id = params[:book]
+		# save it
+		comment.save
+		redirect '/ibook'
+	end
+
 end	

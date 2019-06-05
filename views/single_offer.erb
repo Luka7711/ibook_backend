@@ -1,0 +1,12 @@
+<div>
+	<h2>Message to</h2>
+	<form action="/ibook/owner/<%=@owner_of_book.id%>" method="POST">
+		<textarea type="text" name="comment" rows="6" cols="30"></textarea><label> Message</label><br/>
+		<select name="book">
+			<% @books.each do|book| %>
+			<option value="<%=book.id%>"><%=book[:title]%></option>
+			<% end %>
+		</select>
+		<button>Send</button>
+	</form>
+</div>
