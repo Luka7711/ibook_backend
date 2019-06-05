@@ -29,6 +29,7 @@ class BookController < ApplicationController
 		redirect '/ibook'
 	end
 
+	# shos users unwanted books
 	get '/profile' do
 		# find a user
 		user = User.find_by ({:username => session[:username]})
@@ -37,18 +38,21 @@ class BookController < ApplicationController
 		erb :profile_show
 	end
 
+	# delete a book 
 	delete '/unwantedList/:id' do
 		book = Book.find params[:id]
 		book.destroy
 		redirect '/ibook/profile'
 	end
 
+	# shows edit form
 	get '/unwantedList/edit/:id' do
 		@book = Book.find params[:id]
 		@category = Category.all
 		erb :book_edit
 	end
 
+	# update edits of book
 	put '/unwantedList/:id' do
 		book = Book.find params[:id]
 		book.title = params[:title]
@@ -63,8 +67,8 @@ class BookController < ApplicationController
 		redirect '/ibook/profile'
 	end
 
-	# shows all offered books
-	# show all comments
+	# shows all offering books
+	# show all messages
 	get '/offers/:id' do
 		# get all books except the ones user owns
 		# find an user who wrote an comment
@@ -93,6 +97,7 @@ class BookController < ApplicationController
 	end
 
 	# id of the book other user
+	# user able to send an offer
 	post '/owner/:id' do
 		# find an user who owns the book
 		other_user_book = Book.find params[:id] 
@@ -113,7 +118,9 @@ class BookController < ApplicationController
 		redirect '/ibook'
 
 	end
-	# params[:id] is id of from_id 
+	
+	# see actual offer from other user
+	# 2 books 
 	get '/showDeal/:id' do
 		# pass current comment 
 		@comment = Comment.find params[:id]
@@ -122,6 +129,42 @@ class BookController < ApplicationController
 		erb :show_deal
 	end
 
+	put '/deal/:id' do 
+		# find a 
+		# transition
+		# find an other user id
+		#user 1
+		current_user = User.find_by({:username => session[:username]})
+		data = Comment.find params[:id]
+
+		puts "data:"
+		pp data
+
+		# book1
+		my_book = Book.find_by({:id => data[:book_for_exchange_id]})
+		# .where :user_id => data[:book_for_exchange_id]
+		#book2
+
+		puts "my_book:"
+		pp my_book
+
+		offered_book = Book.find_by({:id => data[:book_offered_id]})
+		# Book.where :user_id => data[:book_offered_id]
+		#user 2
+
+		puts "offered_book:"
+		pp offered_book
+
+		offered_book.user_id = data[:user_id]
+		offered_book.save
+		my_book.user_id  = data[:from_id]
+		my_book.save
+		comment = Comment.find params[:id]
+		comment.destroy
+		redirect '/ibook'
+	end
+
+	# reject offer
 	delete '/deal/:id' do
 		comment = Comment.find params[:id]
 		comment.destroy

@@ -20,7 +20,8 @@
 </div>
 
 <div>
-	<form action="" method="POST">
+	<form action="/ibook/deal/<%=@comment.id%>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
 		<button>Accept</button>
 	</form>
 </div>
