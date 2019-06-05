@@ -1,5 +1,5 @@
 <div>
-	<h2>Message to</h2>
+	<h2>Message to <%=@owner_of_book[:username]%></h2>
 	<form action="/ibook/owner/<%=@owner_of_book.id%>" method="POST">
 		<textarea type="text" name="comment" rows="6" cols="30"></textarea><label> Message</label><br/>
 		<select name="book">

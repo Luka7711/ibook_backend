@@ -13,8 +13,9 @@
 
 <div class="comments_container">
 	<h2>Offers</h2>
+	<%@comments.each do |comment|%>
 	<ul>
-		<li>Luka7711</li>
-		<li><a href="#">Hey bro let's exchange</a></li>
+		 <li><a href="#"><%=comment[:comment_for]%></a></li>
 	</ul>
+	<%end%>
 </div>

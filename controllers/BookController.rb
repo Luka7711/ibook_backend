@@ -62,12 +62,24 @@ class BookController < ApplicationController
 		redirect '/ibook/profile'
 	end
 
+	# shows all offered books
+	# show all comments
 	get '/offers/:id' do
 		# get all books except the ones user owns
 		@book = Book.select do |book| book.user_id != params[:id].to_i end
-		erb :book_offer_show
+		# comment = Comment.find_by ({:user_id => params[:id]})
+		# comment = Comment.select do |comment| comment.user_id = params[:id] end
+		comment = Comment.where :user_id => params[:id]
+		if comment 
+		 @comments = comment
+		 erb :book_offer_show
+		else
+			erb :book_offer_show
+		end
 	end
 
+	#shows for where user can send offer to
+	# owner of the book
 	get '/owner/:id' do
 	# find a current user
 	# find all available books current user has
@@ -76,7 +88,7 @@ class BookController < ApplicationController
 		@books = Book.where :user_id => @user[:id]
 		other_user_book = Book.find params[:id]
 		@owner_of_book = User.find other_user_book[:user_id].to_i
-
+	# find an existing comments	
 		erb :single_offer
 	end
 
