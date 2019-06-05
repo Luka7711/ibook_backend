@@ -59,6 +59,7 @@ class BookController < ApplicationController
 		book.category_id = params[:category].to_i
 		book.save
 
+		@book_title = book[:title]
 		redirect '/ibook/profile'
 	end
 
@@ -66,9 +67,8 @@ class BookController < ApplicationController
 	# show all comments
 	get '/offers/:id' do
 		# get all books except the ones user owns
+		# find an user who wrote an comment
 		@book = Book.select do |book| book.user_id != params[:id].to_i end
-		# comment = Comment.find_by ({:user_id => params[:id]})
-		# comment = Comment.select do |comment| comment.user_id = params[:id] end
 		comment = Comment.where :user_id => params[:id]
 		if comment 
 		 @comments = comment
@@ -95,15 +95,27 @@ class BookController < ApplicationController
 	post '/owner/:id' do
 		# find an owner of the book
 		user = User.find params[:id]
+		# FROM saving an id of current that sends an offer
+		current_user = User.find_by({:username => session[:username]})
 		# create new comment
 		comment = Comment.new
 		# assing user id to comment table
 		comment.comment_for = params[:comment]
+		# TO saving an id of user that owns book
 		comment.user_id = user[:id] 
 		comment.book_id = params[:book]
+		comment.from_id = current_user[:id]
 		# save it
 		comment.save
 		redirect '/ibook'
 	end
 
+	# params[:id] is id of from_id 
+	get '/showDeal/:id' do
+		# find a book that being exchanging
+		# find a book that been offered
+		# create accept/reject btns
+		
+		erb :show_deal
+	end
 end	
