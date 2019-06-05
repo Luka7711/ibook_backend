@@ -17,6 +17,7 @@ class UserController < ApplicationController
 
 		 session[:logged_in] = true
 		 session[:username] = user.username
+		 session[:user_id] = user[:id]
 		 # redirect '/ibook'
 		 'signed up'
 		else 
@@ -37,6 +38,7 @@ class UserController < ApplicationController
 		if user && pw
 		 session[:logged_in] = true
 		 session[:username] = user.username
+		 session[:user_id] = user[:id]
 		 session[:message] = {
 		 	message: "Logged in as #{user.username}"
 		 }

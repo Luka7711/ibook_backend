@@ -9,6 +9,7 @@
 	img{
 		width:150px;
 		height:auto;
+		cursor:pointer;
 	}
 
 	/*.all_books_container{
@@ -28,6 +29,7 @@
 
 			<% if session[:logged_in] %>
 				<a href="/ibook/new">+ Book</a> |
+				<a href="/ibook/offers/<%=session[:user_id]%>">+ Offer</a>
 				<a href="/ibook/profile">Profile</a> |
 				<a href="/auth/logout">Sign out</a> 
 			

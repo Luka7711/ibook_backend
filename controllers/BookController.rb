@@ -2,6 +2,7 @@ class BookController < ApplicationController
 
 	# redirect to home page
 	get '/' do
+		@user = User.find_by ({:username => session[:username]})
 		@books = Book.all
 		@category = Category.all
 		erb :book_index
@@ -60,4 +61,11 @@ class BookController < ApplicationController
 
 		redirect '/ibook/profile'
 	end
+
+	get '/offers/:id' do
+		# get all books except the ones user owns
+		@book = Book.select do |book| book.user_id != params[:id].to_i end
+		erb :book_offer_show
+	end
+
 end	

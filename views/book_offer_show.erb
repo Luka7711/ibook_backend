@@ -1,0 +1,10 @@
+<div>
+	<% @book.each do |book| %>
+		<img src="<%=book.image%>">
+		<ul>
+			<li><%=book[:title]%></li>
+			<li><%=book[:author]%></li>
+			<li><%=book[:published_year]%></li>
+		</ul>
+	<% end %>
+</div>
