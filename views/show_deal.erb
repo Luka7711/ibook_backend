@@ -1,1 +1,35 @@
 <h1>Here's the deal</h1>
+
+<div>
+	<img src="<%=@current_user_book.image%>" alt="image1">
+	<ul>
+		<li>Title: <%=@current_user_book[:title]%></li>
+		<li>Published: <%=@current_user_book[:published_year]%></li>
+		<li>Author: <%=@current_user_book[:author]%></li>
+	</ul>
+</div>
+
+<div>
+	<img src="<%=@offering_book.image%>" alt="image2">
+	<ul>
+		<li>Title: <%=@offering_book[:title]%></li>
+		<li>Published: <%=@offering_book[:published_year]%></li>
+		<li>Author: <%=@offering_book[:author]%></li>
+		<li>Description: <%=@offering_book[:description]%> </li>
+	</ul>
+</div>
+
+<div>
+	<form action="" method="POST">
+		<button>Accept</button>
+	</form>
+</div>
+
+<div>
+	<form action="/ibook/deal/<%=@comment.id%>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<button>Reject</button>
+	</form>
+</div>
+
+

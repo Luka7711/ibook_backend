@@ -47,7 +47,9 @@ CREATE TABLE books(
 CREATE TABLE comments(
 	id SERIAL PRIMARY KEY,
 	comment_for VARCHAR(1000),
-	book_id INTEGER REFERENCES books(id),
 	user_id INTEGER REFERENCES users(id),
-	from_id INTEGER REFERENCES users(id)
+	from_id INTEGER REFERENCES users(id),
+	book_offered_id INTEGER REFERENCES books(id),
+	book_for_exchange_id INTEGER REFERENCES books(id),
+	sender_name VARCHAR(65)
 );

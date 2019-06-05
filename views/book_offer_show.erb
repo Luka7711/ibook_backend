@@ -15,8 +15,8 @@
 	<h2>Offers</h2>
 	<%@comments.each do |comment|%>
 	<ul>
-		 <li>Message from:%></li>
-		 <li><a href="/ibook/showDeal/:<%=comment.from_id%>"><%=comment[:comment_for]%></a></li>
+		 <li>Message from: <%=comment[:sender_name]%></li>
+		 <li><a href="/ibook/showDeal/<%=comment.id%>"><%=comment[:comment_for]%></a></li>
 	</ul>
 	<%end%>
 </div>

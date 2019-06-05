@@ -85,37 +85,46 @@ class BookController < ApplicationController
 	# find all available books current user has
 	# find an owner of offered book by id
 		@user = User.find_by ({:username => session[:username]})
-		@books = Book.where :user_id => @user[:id]
-		other_user_book = Book.find params[:id]
-		@owner_of_book = User.find other_user_book[:user_id].to_i
+		@my_books = Book.where :user_id => @user[:id]
+		@other_user_book = Book.find params[:id]
+		@owner_of_book = User.find @other_user_book[:user_id].to_i
 	# find an existing comments	
 		erb :single_offer
 	end
 
+	# id of the book other user
 	post '/owner/:id' do
-		# find an owner of the book
-		user = User.find params[:id]
-		# FROM saving an id of current that sends an offer
+		# find an user who owns the book
+		other_user_book = Book.find params[:id] 
+		other_user_id = other_user_book[:user_id]
+		
+
+		other_user = User.find other_user_book[:user_id]
 		current_user = User.find_by({:username => session[:username]})
-		# create new comment
+
 		comment = Comment.new
-		# assing user id to comment table
 		comment.comment_for = params[:comment]
-		# TO saving an id of user that owns book
-		comment.user_id = user[:id] 
-		comment.book_id = params[:book]
+		comment.user_id = other_user_id
 		comment.from_id = current_user[:id]
-		# save it
+		comment.book_for_exchange_id = other_user_book[:id]
+		comment.book_offered_id = params[:book]
+		comment.sender_name = current_user[:username]
 		comment.save
 		redirect '/ibook'
-	end
 
+	end
 	# params[:id] is id of from_id 
 	get '/showDeal/:id' do
-		# find a book that being exchanging
-		# find a book that been offered
-		# create accept/reject btns
-		
+		# pass current comment 
+		@comment = Comment.find params[:id]
+		@current_user_book = Book.find @comment[:book_for_exchange_id]
+		@offering_book = Book.find @comment[:book_offered_id]
 		erb :show_deal
+	end
+
+	delete '/deal/:id' do
+		comment = Comment.find params[:id]
+		comment.destroy
+		redirect '/ibook'
 	end
 end	
