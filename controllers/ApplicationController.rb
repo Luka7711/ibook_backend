@@ -4,7 +4,9 @@ class ApplicationController < Sinatra::Base
 	require 'date'
 	Bundler.require()
 
-	enable :sessions
+	use Rack::Session::Cookie, 	:key => 'rack.session',
+								:path => '/',
+								:secret => ENV['SESSION_SECRET']
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'postgresql',
