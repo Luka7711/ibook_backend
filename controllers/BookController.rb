@@ -114,6 +114,7 @@ class BookController < ApplicationController
 		comment.book_for_exchange_id = other_user_book[:id]
 		comment.book_offered_id = params[:book]
 		comment.sender_name = current_user[:username]
+		# comment.time = new Date()
 		comment.save
 		redirect '/ibook'
 
@@ -165,8 +166,15 @@ class BookController < ApplicationController
 		offered_book.save
 		my_book.user_id  = data[:from_id]
 		my_book.save
-		comment = Comment.find params[:id]
-		comment.destroy
+
+		# comment = Comment.find params[:id]
+		comment = Comment.where :book_for_exchange_id => data[:book_for_exchange_id]
+		puts
+		pp 'comments to do delete'
+		pp comment
+		comment.each do |item|
+			item.destroy
+		end
 		redirect '/ibook'
 	end
 
