@@ -12,7 +12,8 @@ class UserController < ApplicationController
 		user = User.new
 		 user.username = params[:username]
 		 user.password = params[:password]
-		 user.zip_code = params[:zipcode]
+		 user.city = params[:city]
+		 user.state = params[:state]
 		 user.save
 
 		 session[:logged_in] = true

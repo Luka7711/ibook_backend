@@ -126,6 +126,24 @@ class BookController < ApplicationController
 		@comment = Comment.find params[:id]
 		@current_user_book = Book.find @comment[:book_for_exchange_id]
 		@offering_book = Book.find @comment[:book_offered_id]
+		user2 = User.find_by({:id => @comment[:from_id]}) 
+		city_name = user2[:city]
+		state = user2[:state]
+
+		puts
+		pp city_name
+		pp state
+
+		def address(city_name, state)
+			arr_city = city_name.split(' ')
+			if arr_city.length > 1
+				arr_city = arr_city.join('+')
+				return arr_city + ',' + state
+			elsif arr_city.length == 1  
+				return  arr_city[0] + ',' + state
+			end
+		end	
+		@modified = address(city_name, state)
 		erb :show_deal
 	end
 
@@ -136,25 +154,13 @@ class BookController < ApplicationController
 		#user 1
 		current_user = User.find_by({:username => session[:username]})
 		data = Comment.find params[:id]
-
-		puts "data:"
-		pp data
-
 		# book1
 		my_book = Book.find_by({:id => data[:book_for_exchange_id]})
 		# .where :user_id => data[:book_for_exchange_id]
-		#book2
-
-		puts "my_book:"
-		pp my_book
-
+		# book2
 		offered_book = Book.find_by({:id => data[:book_offered_id]})
 		# Book.where :user_id => data[:book_offered_id]
 		#user 2
-
-		puts "offered_book:"
-		pp offered_book
-
 		offered_book.user_id = data[:user_id]
 		offered_book.save
 		my_book.user_id  = data[:from_id]

@@ -7,7 +7,8 @@ CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
 	username VARCHAR(32),
 	password_digest VARCHAR(60),
-	zip_code INTEGER NOT NULL
+	city VARCHAR(32),
+	state VARCHAR(5)
 );
 
 CREATE TABLE categories(
