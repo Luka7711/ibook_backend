@@ -52,5 +52,6 @@ CREATE TABLE comments(
 	from_id INTEGER REFERENCES users(id),
 	book_offered_id INTEGER REFERENCES books(id),
 	book_for_exchange_id INTEGER REFERENCES books(id),
-	sender_name VARCHAR(65)
+	sender_name VARCHAR(65),
+	time_date VARCHAR(100)
 );

@@ -114,7 +114,7 @@ class BookController < ApplicationController
 		comment.book_for_exchange_id = other_user_book[:id]
 		comment.book_offered_id = params[:book]
 		comment.sender_name = current_user[:username]
-		# comment.time = new Date()
+		comment.time_date = Time.new
 		comment.save
 		redirect '/ibook'
 

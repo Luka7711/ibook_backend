@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
 
 	require 'bundler'
-
+	require 'date'
 	Bundler.require()
 
 	enable :sessions
