@@ -150,6 +150,7 @@ class BookController < ApplicationController
 			end
 		end	
 		@modified = address(city_name, state)
+		@other_user = user2[:username][0]
 		erb :show_deal
 	end
 
