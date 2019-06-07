@@ -10,6 +10,7 @@ require './models/UserModel'
 require './models/BookModel'
 require './models/CategoryModel'
 require './models/CommentModel'
+require './models/StateModel'
 
 
 map ('/'){

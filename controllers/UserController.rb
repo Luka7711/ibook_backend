@@ -2,6 +2,7 @@ class UserController < ApplicationController
 
 	#show sign up form
 	get '/register' do 
+		@states = State.all
 		erb :register
 	end
 
@@ -13,7 +14,7 @@ class UserController < ApplicationController
 		 user.username = params[:username]
 		 user.password = params[:password]
 		 user.city = params[:city]
-		 user.state = params[:state]
+		 user.state_code = params[:state]
 		 user.save
 
 		 session[:logged_in] = true
