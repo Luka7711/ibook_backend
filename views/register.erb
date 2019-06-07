@@ -4,7 +4,13 @@
 		<label>username:</label><input type="text" name="username" placeholder="username">
 		<label>password:</label><input type="password" name="password" placeholder="password">
 		<label>city:</label><input type="text" name="city" placeholder="city">
-		<label>state:</label><input type="text" name="state" placeholder="state">
+		<label>state:</label>
+
+		<select name="state">
+			<%@states.each do |state|%> 
+				<option value="<%=state.id%>"><%=state[:name]%></option>
+			<%end%>
+		</select>
 		<input type="submit">
 	</form>
 </div>

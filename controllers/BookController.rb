@@ -129,7 +129,12 @@ class BookController < ApplicationController
 		@offering_book = Book.find @comment[:book_offered_id]
 		user2 = User.find_by({:id => @comment[:from_id]}) 
 		city_name = user2[:city]
-		state = user2[:state]
+		found_state = State.find_by({:id => user2[:state_code]})
+		
+		puts 
+		pp "found state is:"
+		pp found_state
+		state = found_state[:code]
 
 		puts
 		pp city_name
