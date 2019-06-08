@@ -2,43 +2,28 @@
 <html>
 <head>
 	<title></title>
-	<link rel='stylesheet' href='/css/style2.css'>
-
+	<link rel='stylesheet' href='/css/style1.css' type='text/css'>
 	<style type="text/css">
-	
-	img{
-		width:150px;
-		height:auto;
-		cursor:pointer;
-	}
-
-	.google_map{
-		width:400px;
-		height:400px;
-	}
-
-	/*.all_books_container{
-		float:left;
-		margin-left:20px;
-	}*/
-	
+		
 	</style>
 </head>
 <body>
 
 	<header>
 		<nav class="home_nav">
-			<span>IBOOK</span>
+			<span class="title">IBOOK</span>
 			<a href="/">Home</a>
 			<a href="#">About</a>
-
+		</nav>
 			<% if session[:logged_in] %>
+			<nav class="right_menu">
 				<a href="/ibook/new">+ Book</a> |
 				<a href="/ibook/offers/<%=session[:user_id]%>">+ Offer</a>
 				<a href="/ibook/profile">Profile</a> |
 				<a href="/auth/logout">Sign out</a> 
-			
+			</nav>
 			<%else%>
+			<nav class="login_nav">
 				<a href="/auth/login">Login</a>
 				<a href="/auth/register">Sign up</a>
 				<%end%>

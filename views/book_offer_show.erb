@@ -1,6 +1,7 @@
-<div>
-	<h2>Other users books</h2>
+<div class="all_books_container">
+ <h2>Other users books</h2>
 	<% @book.each do |book| %>
+	<div class="single_book_container">
 		<img src="<%=book.image%>">
 		<ul>
 			<li><%=book[:title]%></li>
@@ -8,8 +9,11 @@
 			<li><%=book[:published_year]%></li>
 			<li><a href="/ibook/owner/<%=book.id%>">send offer</a></li>
 		</ul>
+		</div>
 	<% end %>
+
 </div>
+
 
 <div class="comments_container">
 	<h2>Offers</h2>

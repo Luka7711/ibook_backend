@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
 	set :method_override, true
 
 	set :views, File.expand_path('../../views', __FILE__)
-	set :public_dir, File.expand_path('../../pubic', __FILE__)
+    set :public_dir, File.expand_path('../../public', __FILE__)
 
 	get '/' do 
 		redirect '/ibook'

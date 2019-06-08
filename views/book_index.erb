@@ -5,15 +5,15 @@
 	</form>
 </div>
 
-<div class="categories">
-	<nav>
+
+	<nav class="categories">
 		<%@category.each do |category|%>
 			<a href="/ibook/category/:id">
 				<%= category[:name] %>
 			</a> |
 		<%end%>
 	</nav>
-</div>
+
 
 <div class="all_books_container">
 	<% @books.each do |book|%>

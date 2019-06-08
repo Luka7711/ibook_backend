@@ -1,0 +1,77 @@
+body{
+	font-family: 'Helvetica';
+	margin:1rem 3rem;
+}
+		
+nav a{
+	color: darkgreen;
+	text-transform: uppercase;
+	margin-left: 1rem;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+img{
+	width:8rem;
+	height:auto;
+}
+
+.all_books_container{
+	margin-top:5rem;
+	height:40rem;
+	float:left;
+}
+
+.single_book_container{
+	width:10rem;
+	height:15rem;
+	float:left;
+	margin-right:1rem;
+}
+
+nav{
+	display: inline-block;
+	}
+
+.right_menu{
+	margin-left:25rem;
+}
+
+
+.title{
+	font-size: 2rem;
+}
+
+.categories{
+	margin-left:25rem;
+}
+
+.categories a{
+	color:brown;
+}
+
+.login_nav{
+	margin-left:35rem;
+}
+
+ul{
+	padding-left:0;
+}
+
+ul li{
+	list-style-type: none;
+}
+
+.clearfix{
+	clear:both;
+}
+
+.google_map{
+	width:25rem;
+	height:25rem;
+}
+
+.comments_container{
+	border-left: 1px solid black;
+}
+

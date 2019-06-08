@@ -175,11 +175,15 @@ class BookController < ApplicationController
 
 		# comment = Comment.find params[:id]
 		comment = Comment.where :book_for_exchange_id => data[:book_for_exchange_id]
+		comment2 = Comment.where :book_offered_id => data[:book_offered_id]
 		puts
 		pp 'comments to do delete'
 		pp comment
 		comment.each do |item|
 			item.destroy
+		end
+		comment2.each do |item2|
+			item2.destroy
 		end
 		redirect '/ibook'
 	end
