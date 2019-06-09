@@ -1,10 +1,12 @@
 <div class="create_form">
-	<form action="/ibook/unwantedList" method="POST">
-		<input type="text" name="title"> <label> title</label> <br/>
-		<input type="text" name="author"> <label> author </label> <br/>
-		<input type="number" name="year"><label> year</label><br/>
+	<div class="child_container">
+		<h3>+ New Book</h3>
+	<form action="/ibook/unwantedList" method="POST" class="input_new">
+		<input type="text" name="title"> :title <br/>
+		<input type="text" name="author"> :author <br/>
+		<input type="number" name="year"> :year<br/>
 		<textarea name="description" rows="6" cols="40"></textarea><label>  description</label><br/>
-		<input type="text" name="image"><label> URL</label><br/>
+		<input type="text" name="image"> URL images<br/>
 		<select name="category">
 			<% @category.each do |category| %>
 			 <option value="<%=category.id%>"><%=category[:name]%></option>
@@ -12,4 +14,5 @@
 		</select><label> genre</label><br/>
 		<input type="submit"><br/>
 	</form>
+	</div>
 </div>

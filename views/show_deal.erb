@@ -1,6 +1,7 @@
 <h1>Here's the deal</h1>
+<div class="all_books_container">
 
-<div>
+<div class="single_book_container">
 	<img src="<%=@current_user_book.image%>" alt="image1">
 	<ul>
 		<li>Title: <%=@current_user_book[:title]%></li>
@@ -8,34 +9,35 @@
 		<li>Author: <%=@current_user_book[:author]%></li>
 	</ul>
 </div>
+<div class="single_book_container">
+		<img src="https://image.flaticon.com/icons/png/512/120/120846.png">
+</div>
 
-<div>
+
+<div class="single_book_container">
 	<img src="<%=@offering_book.image%>" alt="image2">
 	<ul>
-		<li>Title: <%=@offering_book[:title]%></li>
-		<li>Published: <%=@offering_book[:published_year]%></li>
-		<li>Author: <%=@offering_book[:author]%></li>
 		<li>Description: <%=@offering_book[:description]%> </li>
 	</ul>
 </div>
 
+
+
+
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%=@modified%>&zoom=10&size=400x400&maptype=roadmap
+&markers=color:red%7Clabel:<%=@other_user%>%7C40.<%=@modified%>
+&key=AIzaSyAzVBldYgjnvomOHtzXpJP4dy808VDxv3Q" alt="google_map" class="google_map">
 <div>
 	<form action="/ibook/deal/<%=@comment.id%>" method="POST">
 	<input type="hidden" name="_method" value="PUT">
-		<button>Accept</button>
+		<button class="deal_btn">Accept</button>
 	</form>
 </div>
 
 <div>
 	<form action="/ibook/deal/<%=@comment.id%>" method="POST">
 		<input type="hidden" name="_method" value="DELETE">
-		<button>Reject</button>
+		<button class="deal_btn">Reject</button>
 	</form>
 </div>
-
-
-<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%=@modified%>&zoom=10&size=400x400&maptype=roadmap
-&markers=color:red%7Clabel:<%=@other_user%>%7C40.<%=@modified%>
-&key=AIzaSyAzVBldYgjnvomOHtzXpJP4dy808VDxv3Q" alt="google_map" class="google_map">
-
-
+</div>

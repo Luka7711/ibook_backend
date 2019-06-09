@@ -1,12 +1,8 @@
 <div class="all_books_container">
- <h2>Other users books</h2>
 	<% @book.each do |book| %>
 	<div class="single_book_container">
-		<img src="<%=book.image%>">
+		<a href="/ibook/<%=book.id%>"><img src="<%=book.image%>"></a>
 		<ul>
-			<li><%=book[:title]%></li>
-			<li><%=book[:author]%></li>
-			<li><%=book[:published_year]%></li>
 			<li><a href="/ibook/owner/<%=book.id%>">send offer</a></li>
 		</ul>
 		</div>
@@ -17,11 +13,17 @@
 
 <div class="comments_container">
 	<h2>Offers</h2>
-	<%@comments.each do |comment|%>
-	<ul>
-		<li><%=comment[:time_date]%></li>
-		 <li>Message from: <%=comment[:sender_name]%></li>
-		 <li><a href="/ibook/showDeal/<%=comment.id%>"><%=comment[:comment_for]%></a></li>
-	</ul>
+	<% if @comments %>
+		<%@comments.each do |comment|%>
+		<div class="comment">
+		<ul>
+			<li><%=comment[:time_date]%></li>
+			 <li>Message from: <%=comment[:sender_name]%></li>
+			 <li><a href="/ibook/showDeal/<%=comment.id%>"><%=comment[:comment_for]%></a></li>
+		</ul>
+		</div>
+		<% end %>
+	<% else  %>
+		<h3>No Offers Yet</h3>
 	<%end%>
 </div>

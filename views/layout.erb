@@ -8,28 +8,48 @@
 	</style>
 </head>
 <body>
-
+	<div class="container">
 	<header>
 		<nav class="home_nav">
 			<span class="title">IBOOK</span>
 			<a href="/">Home</a>
 			<a href="#">About</a>
-		</nav>
+
 			<% if session[:logged_in] %>
-			<nav class="right_menu">
-				<a href="/ibook/new">+ Book</a> |
+				<a href="/ibook/new" class="logged_in">+ Book</a> |
 				<a href="/ibook/offers/<%=session[:user_id]%>">+ Offer</a>
 				<a href="/ibook/profile">Profile</a> |
-				<a href="/auth/logout">Sign out</a> 
+				<a href="/auth/logout">Out</a> 
 			</nav>
+			
 			<%else%>
-			<nav class="login_nav">
-				<a href="/auth/login">Login</a>
+			
+				<a href="/auth/login" class="auth">Login</a>
 				<a href="/auth/register">Sign up</a>
 				<%end%>
-		</nav>
+			</nav>
 	</header>
 
 	<%=yield%>
+
+		<footer>
+		
+		<div class="links">
+			<ul>
+				<li><a href="https://www.linkedin.com/feed/"><img src="https://www.jobscan.co/img/content/series/linkedin-icon-min.png" class="icon">LinkedIn</a></li>
+				<li><a href="https://github.com/Luka7711"><img src="https://img.icons8.com/metro/420/github.png" class="icon">GitHub</a></li>
+				<li><a href="#"><img src="http://aux2.iconspalace.com/uploads/twitter-icon-256-2130177043.png" class="icon">Twitter</a></li>
+
+			</ul>	
+		</div>
+
+		<div class="rights">
+			<ul>
+				<li>&copy; All Rights reserved</li>
+			</ul>
+		</div>
+	</footer>
+	</div>
+
 </body>
 </html>

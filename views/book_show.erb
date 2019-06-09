@@ -1,0 +1,11 @@
+<div class="all_books_container">
+	<div class="book_container">
+		<img src="<%=@book.image%>">
+	</div>	
+	<div class="info_book">
+		<ul>
+			<li><%=@book[:title]%> <span style="font-size:15px; color:lightblue">by <%=@book[:author]%></span></li>
+			<li>Description: <%=@book[:description]%></li>
+		</ul>
+	</div>
+</div>

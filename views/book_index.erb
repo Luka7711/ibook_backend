@@ -1,6 +1,7 @@
+
 <div class="search_bar">
 	<form action="/ibook/search/:title" method="GET">
-		<input type="text" name="search">
+		<input type="text" name="search" id="search">
 		<button>search</button>
 	</form>
 </div>
@@ -8,21 +9,19 @@
 
 	<nav class="categories">
 		<%@category.each do |category|%>
-			<a href="/ibook/category/:id">
+			<a href="/ibook/category/<%=category.id%>">
 				<%= category[:name] %>
 			</a> |
 		<%end%>
 	</nav>
 
 
+
 <div class="all_books_container">
 	<% @books.each do |book|%>
 		<div class="single_book_container">
-			<img src="<%=book.image%>">
-			<ul>
-				<li><%=book[:title]%></li>
-				<li>Author: <%=book[:author]%></li>
-			</ul>
+			<a href="/ibook/<%=book.id%>"><img src="<%=book.image%>"></a>
 		</div>
 	<%end%>
 </div>
+

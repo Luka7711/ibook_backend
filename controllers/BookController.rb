@@ -194,4 +194,14 @@ class BookController < ApplicationController
 		comment.destroy
 		redirect '/ibook'
 	end
+
+	get '/category/:id' do
+		@books = Book.where :category_id => params[:id]
+		erb :category_items
+	end
+
+	get '/:id' do
+		@book = Book.find params[:id]
+		erb :book_show
+	end
 end	
