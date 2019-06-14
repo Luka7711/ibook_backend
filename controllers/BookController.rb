@@ -194,14 +194,30 @@ class BookController < ApplicationController
 		comment.destroy
 		redirect '/ibook'
 	end
-
+	#show specific book
 	get '/category/:id' do
 		@books = Book.where :category_id => params[:id]
 		erb :category_items
 	end
 
+	get '/about' do
+		erb :about
+	end
+	# find one book, and display it
 	get '/:id' do
 		@book = Book.find params[:id]
 		erb :book_show
 	end
+
+	get '/search/book/find' do
+		@books = Book.where :title => params[:search]
+		if @books.length != 0
+			session[:search_result] = ""
+			erb :search_results
+		elsif 
+			session[:search_result] = "Sorry, there is no such a book in our library"
+			redirect '/ibook'
+		end	
+	end
+
 end	

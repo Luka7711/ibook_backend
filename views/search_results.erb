@@ -1,0 +1,7 @@
+<div class="all_books_container">
+	<%@books.each do |book|%>
+		<div class="single_book_container">
+			<a href="/ibook/<%=book.id%>"><img src="<%=book.image%>"></a>
+		</div>
+	<%end%>
+</div>

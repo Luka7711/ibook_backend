@@ -101,6 +101,7 @@ ul li{
 }
 
 .google_map{
+	padding-right:3rem;
 	width:25rem;
 	height:25rem;
 	margin-top:3rem;
@@ -203,7 +204,10 @@ ul li{
 	letter-spacing: 3px;
 }
 
-
+.exchange_img{
+	float:left;
+	margin-top:4rem;
+}
 
 
 
