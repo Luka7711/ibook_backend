@@ -22,7 +22,7 @@ class UserController < ApplicationController
 		 session[:user_id] = user[:id]
 		 # redirect '/ibook'
 		redirect '/ibook'
-		else 
+		else
 		 session[:message] = {
 		 	message: "Sorry username #{params[:username]} is already taken"
 		 }

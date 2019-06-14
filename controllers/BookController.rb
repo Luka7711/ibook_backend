@@ -3,7 +3,8 @@ class BookController < ApplicationController
 	# redirect to home page
 	get '/' do
 		@user = User.find_by ({:username => session[:username]})
-		@books = Book.all
+		# book_all = Book.all
+		@books = Book.all.sort
 		@category = Category.all
 		erb :book_index
 	end
@@ -17,7 +18,7 @@ class BookController < ApplicationController
 	# creating a book
 	post '/unwantedList' do 
 		book = Book.new
-		book.title = params[:title]
+		book.title = params[:title].downcase
 		book.author = params[:author]
 		book.published_year = params[:year]
 		book.description = params[:description]
@@ -210,7 +211,8 @@ class BookController < ApplicationController
 	end
 
 	get '/search/book/find' do
-		@books = Book.where :title => params[:search]
+		@books = Book.where :title => params[:search].downcase
+
 		if @books.length != 0
 			session[:search_result] = ""
 			erb :search_results
