@@ -2,6 +2,8 @@
 <h2>My library </h2>
 
 <div class="all_books_container">
+	
+	<h2><%=session[:book_status]%></h2>
 
 	<% @unwanted_books.each do |book| %>
 		<div class="single_book_container">

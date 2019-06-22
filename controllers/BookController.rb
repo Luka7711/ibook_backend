@@ -36,14 +36,28 @@ class BookController < ApplicationController
 		user = User.find_by ({:username => session[:username]})
 		# find a list of unwanted books
 		@unwanted_books = Book.where :user_id => user.id
+		if @unwanted_books.length == 0
+			session[:book_status] = "There is no books in your library"	
+		else
+			session[:book_status] = " "
+		end
 		erb :profile_show
 	end
 
 	# delete a book 
 	delete '/unwantedList/:id' do
 		book = Book.find params[:id]
-		book.destroy
-		redirect '/ibook/profile'
+		#find a comment related with current book
+		comment = Comment.find_by ({:book_for_exchange_id => book[:id]})
+		# comment = Comment.find 23
+		if comment
+		 comment.destroy
+		 book.destroy
+		 redirect '/ibook/profile'
+		else
+		 book.destroy
+		 redirect '/ibook/profile'
+		end
 	end
 
 	# shows edit form
