@@ -144,41 +144,23 @@ ul li{
 .auth_form{
 	width:20rem;
 	height:25rem;
-	background: #f9fff9;
+	background-color: #4e4e50;
 	margin:3rem auto;
 	text-align: center;
 	padding:1rem;
-	border-radius: 10px;
+	border-radius: 3px;
 	font-size: 1.3rem;
 }
 .auth_form input{
 	margin-top:1.6rem;
 	margin-bottom:1rem;
 }
-
-
-.links{
-	margin-right:5rem;
-	width:10rem;
-}
-
-.icon{
-	width:2rem;
-	height:auto;
-	margin-right:1rem;
-	padding-top:1rem; 
-}
-
-.links ul li a{
-	color:black;
-}
-
 .create_form{
 	width:30rem;
 	height:25rem;
-	background: #f9fff9;
 	margin:0 auto;
 	border-radius: 3px;
+	background-color: #4e4e50;
 }
 
 .child_container{
