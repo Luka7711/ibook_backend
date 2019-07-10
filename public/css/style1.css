@@ -48,6 +48,7 @@ img{
 	-webkit-box-shadow: 0 8px 6px -1px black;
 	-moz-box-shadow: 0 8px 6px -1px black;
 	box-shadow: 0 8px 6px -1px black;
+	margin-top:1rem;
 }
 
 img:hover{
@@ -137,7 +138,7 @@ ul li{
 	padding-left: 1rem; 
 
 }
-.comments_container h2{
+.comments_container h2, .text_library, .text{
 	color:grey;
 }
 

@@ -4,7 +4,7 @@
 		<input type="text" name="search" id="search">
 		<button>search</button>
 		<% if session[:search_result] %>
-			<p><%=session[:search_result]%></p>
+			<p class="text"><%=session[:search_result]%></p>
 		<%else%>
 		<%""%>
 		<%end%>
