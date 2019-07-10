@@ -1,8 +1,25 @@
+<div class="comments_container">
+	<h2><i class="fas fa-comments"></i> Offers & Messages</h2>
+	<% if @comments %>
+		<%@comments.each do |comment|%>
+		<div class="comment">
+		<ul>
+			<li><%=comment[:time_date]%></li>
+			 <li>Message from: <%=comment[:sender_name]%></li>
+			 <li><i class="far fa-envelope-open"></i> <a href="/ibook/showDeal/<%=comment.id%>"><%=comment[:comment_for]%></a></li>
+		</ul>
+		</div>
+		<% end %>
+	<% else  %>
+		<h3>No Offers Yet</h3>
+	<%end%>
+</div>
+
 <div class="all_books_container">
 	<% @book.each do |book| %>
 	<div class="single_book_container">
 		<a href="/ibook/<%=book.id%>"><img src="<%=book.image%>"></a>
-		<ul>
+		<ul id="send_offer">
 			<li><a href="/ibook/owner/<%=book.id%>">send offer</a></li>
 		</ul>
 		</div>
@@ -11,19 +28,3 @@
 </div>
 
 
-<div class="comments_container">
-	<h2>Offers</h2>
-	<% if @comments %>
-		<%@comments.each do |comment|%>
-		<div class="comment">
-		<ul>
-			<li><%=comment[:time_date]%></li>
-			 <li>Message from: <%=comment[:sender_name]%></li>
-			 <li><a href="/ibook/showDeal/<%=comment.id%>"><%=comment[:comment_for]%></a></li>
-		</ul>
-		</div>
-		<% end %>
-	<% else  %>
-		<h3>No Offers Yet</h3>
-	<%end%>
-</div>

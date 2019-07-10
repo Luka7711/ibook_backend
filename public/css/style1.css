@@ -1,7 +1,8 @@
 body{
 	font-family: 'Helvetica';
 	margin: 0 auto;
-	background: #eaeaea;
+	/*background: #eaeaea;*/
+	background: #1A1A1D;
 }
 
 .container{
@@ -9,20 +10,25 @@ body{
 }
 
 header{
-	background: #131921;
-	padding:1rem 0;
-	border-radius:10px;
+	background: #4e4e50;
+	padding:.7rem 0;
+	border-radius:3px;
 }
 header nav a{
-	color:white;
+	color:lightgrey;
 	letter-spacing: .1rem;
+	text-decoration: none;
 }
 	
 nav a{
 	text-transform: uppercase;
 	margin-left: .5rem;
-	font-weight: 600;
-	font-size: 1.4rem;
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+nav a:hover{
+	color:white;
 }
 
 #search {
@@ -39,13 +45,23 @@ nav a{
 img{
 	width:8rem;
 	height:auto;
+	-webkit-box-shadow: 0 8px 6px -1px black;
+	-moz-box-shadow: 0 8px 6px -1px black;
+	box-shadow: 0 8px 6px -1px black;
+}
+
+img:hover{
+	transform: scale(1.04);
+	transition:.3s;
 }
 
 .all_books_container{
 	margin-top:5rem;
-	background: #f9fff9;
+	height: 40rem;
+}
+
+.book_offer_container{
 	height:50rem;
-	border-radius:10px;
 }
 
 .single_book_container{
@@ -63,7 +79,7 @@ nav{
 }
 
 .logged_in{
-	margin-left:11rem;
+	margin-left:14rem;
 }
 
 .title{
@@ -77,6 +93,8 @@ nav{
 
 .categories a{
 	font-size: .8rem;
+	color:lightgrey;
+	text-decoration: none;
 }
 
 .auth {
@@ -84,7 +102,7 @@ nav{
 }
 
 header{
-	margin-top:1rem;
+	margin-top:.5rem;
 	margin-bottom:2rem;
 }
 
@@ -94,10 +112,15 @@ ul{
 
 ul li{
 	list-style-type: none;
+	color:grey;
 }
 
 .clearfix{
 	clear:both;
+}
+
+#send_offer li a, .message_form h2, .message_form form{
+	color:grey;
 }
 
 .google_map{
@@ -106,13 +129,17 @@ ul li{
 	height:25rem;
 	margin-top:3rem;
 	margin-left:1rem;
+	box-shadow: none;
 }
 
 .comments_container{
 	border-left: 8px solid #d65708;
 	padding-left: 1rem; 
-}
 
+}
+.comments_container h2{
+	color:grey;
+}
 
 .auth_form{
 	width:20rem;
@@ -151,6 +178,7 @@ ul li{
 	height:25rem;
 	background: #f9fff9;
 	margin:0 auto;
+	border-radius: 3px;
 }
 
 .child_container{
@@ -169,7 +197,7 @@ ul li{
 
 
 .comment{
-	background: white;
+	background: #4e4e50;
 	border-radius: 10px;
 	width:30rem;
 	height: 5rem;
@@ -181,6 +209,10 @@ ul li{
 	padding-top:.4rem;
 }
 
+.comment ul li a{
+	color:orange;
+}
+
 .book_container{
 	width:20rem;
 	height:25rem;
@@ -189,7 +221,7 @@ ul li{
 }
 
 .book_container img{
-	width:100%;
+	width:80%;
 	height:auto;
 }
 
@@ -209,10 +241,17 @@ ul li{
 	margin-top:4rem;
 }
 
+.title{
+	margin-left:20px;
+}
 
+.book_mark{
+	color:brown;
+}
 
-
-
+.fa-comments, .fa-envelope-open{
+	color:lightgreen;
+}
 
 
 
