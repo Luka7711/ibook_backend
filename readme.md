@@ -1,3 +1,7 @@
+#Installation
+npm install
+
+
 # Book exchange
 
 Web app, where people can exchange books.
